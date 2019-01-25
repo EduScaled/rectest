@@ -13,3 +13,7 @@ TEOS_ACTOR = 0
 
 UPLOADS_URL = 'https://uploads.u2035dev.ru/75ed4570-f5ea-409a-8bf2-4f136901a3c1/1310/'
 UPLOADS_ACTOR = 0
+
+LRS_SERVER_URL = 'https://lrs.u2035dev.ru'
+LRS_AUTH = ''
+LRS_ACTOR = 0
