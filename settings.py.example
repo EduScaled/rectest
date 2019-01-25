@@ -1,0 +1,18 @@
+KAFKA_URL = 'esb.u2035dev.ru:9092'
+FACT_STORAGE_SERVER_URL = 'http://fs.u2035dev.ru'
+FACT_STRORAGE_SERVER_TOKEN = ''
+REC_STORAGE_SERVER_URL = 'http://recstorage.u2035dev.ru'
+REC_STORAGE_SERVER_TOKEN = ''
+
+LEADER_LOGIN_URL = 'https://leader-id.ru/login/?simple=1'
+LEADER_LOGIN = ''
+LEADER_PASSWORD = ''
+
+TEOS_TEST_URL = 'https://teos.u2035dev.ru/test/a69ed2f7-ac5e-45ea-9f1c-4635657e2970/step/1'
+TEOS_ACTOR = 0
+
+UPLOADS_URL = 'https://uploads.u2035dev.ru/75ed4570-f5ea-409a-8bf2-4f136901a3c1/1310/'
+UPLOADS_ACTOR = 0
+
+LRS_SERVER_URL = 'https://lrs.u2035dev.ru'
+LRS_AUTH = ''
