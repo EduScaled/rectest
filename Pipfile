@@ -10,7 +10,7 @@ aiokafka = "*"
 pytest = "*"
 pytest-asyncio = "*"
 aiohttp = "*"
-pytest-selenium = "*"
+selenium = "*"
 
 [requires]
 python_version = "3.7"
