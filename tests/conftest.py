@@ -97,7 +97,7 @@ async def facts(fs_messages):
     async with aiohttp.ClientSession(headers=headers) as session:
         for message in fs_messages:
             fact_id = message["id"]["fact"]["uuid"]
-            url = urljoin(settings.FACT_STORAGE_SERVER_URL, f'/facts/{fact_id}')
+            url = urljoin(settings.FACT_STORAGE_SERVER_URL, f'/api/v1/facts/{fact_id}')
             async with session.get(url) as resp:
                 assert resp.status == 200
                 fact = await resp.json()

@@ -44,7 +44,7 @@ async def recommendations(rs_messages: List[dict]):
     async with aiohttp.ClientSession(headers=headers) as session:
         for message in rs_messages:
             recommendation_id = message["id"]["recommendation"]["uuid"]
-            url = urljoin(settings.REC_STORAGE_SERVER_URL, f'/api/recommendations/{recommendation_id}')
+            url = urljoin(settings.REC_STORAGE_SERVER_URL, f'/api/v1/recommendations/{recommendation_id}')
             async with session.get(url) as resp:
                 assert resp.status == 200
                 recommendation = await resp.json()
