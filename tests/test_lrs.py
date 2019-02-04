@@ -125,21 +125,42 @@ def test_fs_messages(fs_messages):
             'id': {'fact': {'uuid': fs_messages[0]['id']['fact']['uuid']}},
             'action': 'create', 'title': '', 'type': 'fact', 'source': 'factstorage', 'version': 1,
             'timestamp': fs_messages[0]['timestamp']
+        },
+        {
+            'id': {'fact': {'uuid': fs_messages[1]['id']['fact']['uuid']}},
+            'action': 'create', 'title': '', 'type': 'fact', 'source': 'factstorage', 'version': 1,
+            'timestamp': fs_messages[1]['timestamp']
         }
     ]
 
 
 @pytest.mark.usefixtures('complete_lrs')
 def test_facts(facts):
+    facts = sorted(facts, key=lambda fact: fact['type'])
     assert facts == [
         {
             'actor': [settings.LRS_ACTOR],
-            'type': 'compractice.event.personalresult',
+            'type': 'lrs.compractice.user.result',
             'result': {
                 'cell_address': {'competence': '4dc07ab1-a3fd-4fae-88c0-700a77c88a1c', 'level': 3, 'sublevel': 2}
             },
             'source': 'lrs',
             'handler': 'compractice_result', 'meta': {},
-            'description': None, 'is_active': True, 'fact_class': None
+            'description': '', 'is_active': True, 'fact_class': None
+        }, {
+            'actor': [settings.LRS_ACTOR],
+            'type': 'lrs.culture.user.result',
+            'result': {
+                'end': '2018-11-19T19:00:00+03:00',
+                'link': 'http://university2035.ru/digital_footprint/31/',
+                'level': 3, 'place': None,
+                'start': '2018-11-19T17:00:00+03:00',
+                'title': 'Задача «Командная встреча 19.11.2018»',
+                'sublevel': 2,
+                'linkTitle': 'Задача в рамках проекта «Cerebroom»',
+                'competence': '4dc07ab1-a3fd-4fae-88c0-700a77c88a1c'
+            },
+            'source': 'lrs', 'handler': 'culture_result', 'meta': {}, 'description': '', 'is_active': True,
+            'fact_class': None
         }
     ]

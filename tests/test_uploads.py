@@ -56,6 +56,11 @@ def test_fs_messages(fs_messages):
             'id': {'fact': {'uuid': fs_messages[0]['id']['fact']['uuid']}},
             'action': 'create', 'title': '', 'type': 'fact', 'source': 'factstorage', 'version': 1,
             'timestamp': fs_messages[0]['timestamp']
+        },
+        {
+            'id': {'fact': {'uuid': fs_messages[1]['id']['fact']['uuid']}},
+            'action': 'create', 'title': '', 'type': 'fact', 'source': 'factstorage', 'version': 1,
+            'timestamp': fs_messages[1]['timestamp']
         }
     ]
 
@@ -64,7 +69,7 @@ def test_fs_messages(fs_messages):
 def test_facts(facts):
     assert facts == [
         {
-            'actor': [settings.UPLOADS_ACTOR], 'type': 'uploads.user.result',
+            'actor': [settings.UPLOADS_ACTOR], 'type': 'uploads.event.user.result',
             'result': {'event': '75ed4570-f5ea-409a-8bf2-4f136901a3c1',
                        'cell_address': {'level': '2', 'sublevel': '3',
                                         'competence': '4b222989-5bdf-439d-8f8b-62ea07b8cd5c'}},
@@ -72,6 +77,17 @@ def test_facts(facts):
             'meta': {
                 'url': facts[0]['meta']['url'],
                 'user_result': {'uuid': facts[0]['meta']['user_result']['uuid']}
-            }, 'description': None, 'is_active': True, 'fact_class': None
+            }, 'description': '', 'is_active': True, 'fact_class': None
+        },
+        {
+            'actor': [settings.UPLOADS_ACTOR], 'type': 'uploads.event.user.result',
+            'result': {'event': '75ed4570-f5ea-409a-8bf2-4f136901a3c1',
+                       'cell_address': {'level': '2', 'sublevel': '3',
+                                        'competence': '4b222989-5bdf-439d-8f8b-62ea07b8cd5c'}},
+            'source': 'uploads', 'handler': 'uploads_result',
+            'meta': {
+                'url': facts[0]['meta']['url'],
+                'user_result': {'uuid': facts[0]['meta']['user_result']['uuid']}
+            }, 'description': '', 'is_active': True, 'fact_class': None
         }
     ]

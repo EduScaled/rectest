@@ -57,7 +57,7 @@ async def kafka_offsets(create_consumer, topics):
 @pytest.fixture(scope='module')
 async def kafka_messages(create_consumer, kafka_offsets):
     consumer = create_consumer()
-    time.sleep(15)
+    time.sleep(60)
     try:
         await consumer.start()
         messages = {}
